@@ -1,0 +1,14 @@
+FROM continuumio/miniconda3:4.8.2-alpine 
+
+LABEL base_image="continuumio/miniconda3:4.8.2-alpine"
+LABEL about.home="https://github.com/Clinical-Genomics/inquisitor"
+LABEL about.license="MIT License (MIT)"
+LABEL about.maintainer="Hassan Foroughi hassan dot foroughi at scilifelab dot se" 
+LABEL about.description="benchmark and test various tools"
+
+ENV PATH="/opt/conda/bin/:${PATH}"
+
+USER root
+
+RUN apk add --no-cache bash
+RUN conda install -c conda-forge -c bioconda samtools==1.11
